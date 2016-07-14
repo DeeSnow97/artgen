@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Art generator</title>
+    <style>
+      @font-face {
+        font-family: "Open Sans";
+        src: url("OpenSans-Regular.ttf");
+      }
+      
+      canvas, #nametag {
+        box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 15px 0px ;
+        padding: 4px ;
+        background-color: #fff ;
+        border-radius: 4px ;
+        margin: 12px 0 ;
+      }
+      
+      canvas {
+        display: block ;
+      }
+      
+      #nametag {
+        display: inline-block ;
+        font-family: 'Open Sans', sans-serif ;
+      }
+      
+      #nametag h1 {
+        margin: 12px ;
+      }
+      
+      #container {
+        display: inline-block ;
+        text-align: right ;
+      }
+      
+      body {
+        text-align: center ;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <canvas width="1280" height="720"></canvas>
+      <div id="nametag">
+        <h1>Title goes here</h1>
+        <small></small>
+      </div>
+    </div>
+    <script>
+      var canvas = document.querySelector( 'canvas' ) ;
+      var context = canvas.getContext('2d') ;
+    </script>
+    <script src="art.js"></script>
+    <script>
+      canvas.addEventListener( 'click', function() {
+        drawArt() ;
+        document.querySelector( '#nametag h1' ).textContent = getName() ;
+      });
+    </script>
+  </body>
+</html>
